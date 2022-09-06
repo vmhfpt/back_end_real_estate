@@ -1,0 +1,14 @@
+
+const mongoose = require('mongoose');
+
+const Schema = mongoose.Schema;
+const CitySchema = new Schema({
+ name : String,
+ type : String,
+ name_with_type : String,
+ slug : String,
+ code : String,
+},
+{ timestamps : true}
+);
+module.exports =  mongoose.model("City",  CitySchema);

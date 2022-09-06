@@ -1,0 +1,10 @@
+const express = require('express');
+const Route = express.Router();
+const UtilityController = require('../../Controllers/UtilityController');
+Route.get('/get-all', UtilityController.getAll);
+Route.get('/list', UtilityController.index);
+Route.post('/add', UtilityController.create);
+Route.put('/update/:id', UtilityController.update);
+Route.delete('/delete', UtilityController.destroy);
+Route.get('/show/:id',UtilityController.show );
+module.exports = Route;
