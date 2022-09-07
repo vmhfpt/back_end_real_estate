@@ -12,9 +12,7 @@ const port = 5000;
 const server = http.createServer(app);
 db.connect();
 app.use(cors());
-app.get('run-time-heroku/test', (req, res) => {
-  res.send('<h1> hello heroku</h1>')
-});
+
 app.use(morgan('combined'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());

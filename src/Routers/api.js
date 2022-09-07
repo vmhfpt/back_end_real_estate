@@ -14,10 +14,9 @@ const routePostProject = require('./Post/project.js');
 const routePostComment = require('./Post/comment.js');
 const routerUserProperty = require("./Post/useProperty");
 function route(app){
-   app.post('/admin/demo', function(req, res) {
-      
-      return res.json(req.body.params);
-   });
+   app.get('/run-time-heroku/test', (req, res) => {
+      res.send('<h1> hello heroku</h1>');
+    });
    app.post('/admin/refresh-token', UserController.refreshToken);
    app.post('/admin/login', UserController.login);
    app.post('/admin/access-token',authLogin, UserController.accessToken);

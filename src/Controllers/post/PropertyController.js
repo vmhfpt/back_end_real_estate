@@ -33,7 +33,7 @@ class PropertyController {
           firstProperty: firstData,
           project: project,
         });
-      }, 4000);
+      }, 1000);
     });
   }
   show(req, res) {
