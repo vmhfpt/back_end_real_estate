@@ -119,11 +119,11 @@ class PropertyController {
         var string = data.thumb;
         var public_id = string.slice(string.indexOf("images"),string.lastIndexOf("."));
         dataFile.map((item) => {
-          var imagePath =
-            path.join(__dirname, "\\..\\Public\\img\\properties\\") +
-            item.filename;
+         // var imagePath =
+          // path.join(__dirname, "\\..\\Public\\img\\properties\\") +
+          //  item.filename;
           const urlDb = async () => {
-            const dataNameCloud = await uploadImage(imagePath, "image");
+            const dataNameCloud = await uploadImage(item.path, "image");
            
             return Promise.all([
               Property.findByIdAndUpdate(data._id, {
@@ -139,11 +139,11 @@ class PropertyController {
         const dataFiles = req.files.images;
 
         dataFiles.map((item) => {
-          var imagePath =
-            path.join(__dirname, "\\..\\Public\\img\\properties\\") +
-            item.filename;
+         // var imagePath =
+         //   path.join(__dirname, "\\..\\Public\\img\\properties\\") +
+        //    item.filename;
           const urlDb = async () => {
-            const dataNameCloud = await uploadImage(imagePath, "library");
+            const dataNameCloud = await uploadImage(item.path, "library");
             return Library.create({
               property_id: data._id,
               thumb: dataNameCloud,
@@ -241,11 +241,11 @@ class PropertyController {
         if (req.files.file) {
           const dataFile = req.files.file;
           dataFile.map((item) => {
-            var imagePath =
-              path.join(__dirname, "\\..\\Public\\img\\properties\\") +
-              item.filename;
+           // var imagePath =
+            //  path.join(__dirname, "\\..\\Public\\img\\properties\\") +
+           //   item.filename;
             const urlDb = async () => {
-              const dataNameCloud = await uploadImage(imagePath, "image");
+              const dataNameCloud = await uploadImage(item.path, "image");
               // console.log(dataNameCloud);
               return Property.findByIdAndUpdate(data._id, {
                 thumb: dataNameCloud,
@@ -259,11 +259,11 @@ class PropertyController {
           const dataFiles = req.files.images;
 
           dataFiles.map((item) => {
-            var imagePath =
-              path.join(__dirname, "\\..\\Public\\img\\properties\\") +
-              item.filename;
+           // var imagePath =
+            //  path.join(__dirname, "\\..\\Public\\img\\properties\\") +
+            //  item.filename;
             const urlDb = async () => {
-              const dataNameCloud = await uploadImage(imagePath, "library");
+              const dataNameCloud = await uploadImage(item.path, "library");
               return Library.create({
                 property_id: data._id,
                 thumb: dataNameCloud,
